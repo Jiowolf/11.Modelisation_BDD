@@ -136,6 +136,12 @@ Exercice 2 : Lister les transports avec leur société
 📌 Objectif : Afficher tous les transports (transport), en affichant le nom de la société correspondante.
 */
 
+SELECT
+    Type_Transport,
+    Nom_transport,
+    Nom_compagine
+FROM
+    moyen_de_transport
 
 
 /*
@@ -143,27 +149,46 @@ Exercice 3 : Trouver les transports ayant plus de 200 places
 📌 Objectif : Afficher tous les transports qui ont plus de 200 places (TotalSeats).
 */
 
-
+SELECT
+    Type_Transport,
+    Nom_transport,
+    Nom_compagine
+FROM
+    moyen_de_transport
+WHERE
+    Place_véhicule > 200
 
 /*
 Exercice 4 : Afficher les hébergements et leur type de contact principal
 📌 Objectif : Associer les hébergements (hebergement) avec le type de contact principal
 */
 
-
+SELECT
+    Nom_hebergement
+    Contact_hebergement
+FROM
+    hebergement
 
 /* 
 Exercice 5 : Trouver les contacts des hébergements en Suisse
 📌 Objectif : Afficher les contacts (contact) associés à un hébergement situé en Suisse.e).
 */
 
-
+SELECT
+    Contact_hebergement
+FROM
+    hebergement
+WHERE
+    Pays_hebergement = "Suisse"
 
 /* 
 Exercice 6 : Créer un voyage en Belgique (3 jours à Plopsaland) avec un nombre limité de 50 places.
 📌 Objectif : Créer un voyage en Belgique, Trouver le moyen de transport, l'herbergement et le contact.
 */
 
+INSERT INTO voyage
+VALUES 
+    (16,"Plopsaland",500,45,0,2);
 
 
 /* 
@@ -171,5 +196,7 @@ Exercice 7 : Ajouter un client à ce voyage
 📌 Objectif : Ajouter plusieurs clients, payment ....
 */
 
-
+INSERT INTO client
+VALUES
+    (11,"Yelda","Marie","1987/06/28","yelma@gmail.com")
 

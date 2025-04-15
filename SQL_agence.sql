@@ -17,6 +17,7 @@ CREATE TABLE Client
   Prenom_client  VARCHAR(50) NULL    ,
   Date_naissance DATE        NULL    ,
   Mail_client    VARCHAR(50) NULL    ,
+  voyageID       INT         NOT NULL,
   PRIMARY KEY (ClientID)
 );
 
@@ -89,7 +90,6 @@ CREATE TABLE Voyage
   Places_disponible   INT         NULL    ,
   Incription_en_cours INT         NULL    ,
   AgenceID            INT         NOT NULL,
-  ClientID            INT         NOT NULL,
   PRIMARY KEY (voyageID)
 );
 
@@ -126,11 +126,6 @@ ALTER TABLE Payement
     FOREIGN KEY (voyageID)
     REFERENCES Voyage (voyageID);
 
-ALTER TABLE Voyage
-  ADD CONSTRAINT FK_Client_TO_Voyage
-    FOREIGN KEY (ClientID)
-    REFERENCES Client (ClientID);
-
 ALTER TABLE Payement
   ADD CONSTRAINT FK_Client_TO_Payement
     FOREIGN KEY (ClientID)
@@ -143,5 +138,10 @@ ALTER TABLE Moyen_de_transport
 
 ALTER TABLE Guide_touristique
   ADD CONSTRAINT FK_Voyage_TO_Guide_touristique
+    FOREIGN KEY (voyageID)
+    REFERENCES Voyage (voyageID);
+
+ALTER TABLE Client
+  ADD CONSTRAINT FK_Voyage_TO_Client
     FOREIGN KEY (voyageID)
     REFERENCES Voyage (voyageID);
