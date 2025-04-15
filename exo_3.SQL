@@ -198,5 +198,5 @@ Exercice 7 : Ajouter un client à ce voyage
 
 INSERT INTO client
 VALUES
-    (11,"Yelda","Marie","1987/06/28","yelma@gmail.com")
+    (11,"Yelda","Marie","1987/06/28","yelma@gmail.com",16)
 
